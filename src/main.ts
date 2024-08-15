@@ -2,8 +2,11 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 // import bodyParser from 'body-parser';
 import { json, urlencoded } from 'express';
+import { Logger } from '@nestjs/common';
+import { envs } from './config/envs';
 
 async function bootstrap() {
+  const logger = new Logger('MAIN - API Pokemon')
   const app = await NestFactory.create(AppModule);
 
   // Habilitar CORS
@@ -14,6 +17,9 @@ async function bootstrap() {
   app.use(json({ limit: '10mb' }));
   app.use(urlencoded({ limit: '10mb', extended: true }));
   
-  await app.listen(3000);
+  logger.log(`API running on port ${envs.port}`)
+
+  await app.listen(envs.port);
+
 }
 bootstrap();
