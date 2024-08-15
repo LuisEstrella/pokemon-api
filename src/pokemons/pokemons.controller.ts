@@ -16,6 +16,7 @@ export class PokemonsController {
 
   @Get()
   findAll() {
+    //Revisar
     return this.pokemonsService.findAll();
   }
 

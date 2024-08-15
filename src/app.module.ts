@@ -5,16 +5,17 @@ import { PokemonsModule } from './pokemons/pokemons.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Pokemon } from './pokemons/entities/pokemon.entity';
 import { DataSource } from 'typeorm';
+import { envs } from './config/envs';
 
 @Module({
   imports: [PokemonsModule, 
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      host: '127.0.0.1',
-      port: 27017,
+      host: envs.host_mongo_db,
+      port: envs.port_mongo_db,
       username: '',
       password: '',
-      database: 'pokemonDB',
+      database: envs.database_mongo_db,
       entities: [Pokemon],
       synchronize: true,
     })
