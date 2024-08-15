@@ -33,7 +33,6 @@ export class PokemonsService {
   }
 
   remove(id: ObjectId) {
-    // this.pokemonRepository.delete(id);
     return this.pokemonRepository.delete(id);
   }
 }
