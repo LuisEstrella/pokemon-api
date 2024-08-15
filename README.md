@@ -10,8 +10,9 @@ Antes de comenzar, asegúrate de tener instalados los siguientes componentes:
 - **npm** (versión 6.x o superior)
 
 Para correr el proyecto
+-crear un archivo `.env` basado en `.env.template`
 -npm install
--npm run start
+-npm run start:dev
 
 
 Puedes verificar si Node.js y npm están instalados correctamente ejecutando:
